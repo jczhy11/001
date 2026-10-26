@@ -1,0 +1,1063 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>자린굴비</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#F47735',
+                        brandDark: '#E05D1B',
+                        darkBrown: '#6B3D25',
+                        cream: '#FFF5EC',
+                        pureWhite: '#FFFFFF',
+                        bgLight: '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* Mobile Viewport Simulation Container */
+        .mobile-container {
+            max-width: 430px;
+            min-height: 100vh;
+            margin: 0 auto;
+            background-color: #FFF5EC;
+            position: relative;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    
+        :root { color-scheme: light; }
+        .ico { width: 1em; height: 1em; display: inline-block; vertical-align: -0.125em; flex: none; }
+        .nav-btn { min-width: 0; }
+</style>
+<div class="bg-gray-100 min-h-screen text-gray-800 antialiased flex justify-center" id="app-root">
+
+
+    <!-- Mobile View Container -->
+    <div class="mobile-container w-full min-h-screen flex flex-col justify-between relative pb-20">
+
+        <!-- HEADER / NAVIGATION (상단 고정) -->
+        <header style="top: env(safe-area-inset-top, 0px)" class="sticky z-50 bg-pureWhite/90 backdrop-blur-md border-b border-brand/10 px-5 py-3 flex items-center justify-between shadow-sm">
+            <div class="flex items-center gap-2">
+                <!-- 귀여운 굴비 캐릭터 SVG 아이콘 -->
+                <div class="w-9 h-9 rounded-full bg-brand/15 flex items-center justify-center text-brand font-bold text-xl shadow-inner">
+                    🐟
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg text-darkBrown tracking-tight flex items-center gap-1">
+                        자린굴비 <span class="text-[10px] px-1.5 py-0.5 bg-brand text-white rounded-full font-medium">MVP</span>
+                    </h1>
+                    <p class="text-[11px] text-gray-500 -mt-1">현명한 소비 판단 도우미</p>
+                </div>
+            </div>
+            <button onclick="switchTab('S-05')" class="p-2 text-gray-400 hover:text-brand transition-colors">
+                <svg class="ico text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+            </button>
+        </header>
+
+        <!-- MAIN CONTENT AREA AREA -->
+        <main class="flex-1 px-4 py-4 overflow-y-auto hide-scrollbar">
+
+            <!-- ======================================================== -->
+            <!-- S-01: 홈 / 오늘의 소비 한도 (F-01) -->
+            <!-- ======================================================== -->
+            <section id="S-01" class="tab-content space-y-4">
+                <!-- C-01: 오늘의 권장 소비 한도 카드 -->
+                <div class="bg-gradient-to-br from-brand to-brandDark rounded-2xl p-5 text-white shadow-lg relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-15 text-8xl font-black text-white select-none">
+                        🐟
+                    </div>
+                    
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full font-medium text-white/90">
+                            C-01 | F-01 오늘의 소비 한도
+                        </span>
+                        <span class="text-xs text-orange-100 font-light" id="current-date-text">2026.10.26</span>
+                    </div>
+
+                    <p class="text-sm font-medium text-orange-100 mt-2">오늘 쓸 수 있는 권장 한도</p>
+                    <div class="flex items-baseline gap-1 my-1">
+                        <h2 class="text-3xl font-black tracking-tight" id="today-limit-display">0</h2>
+                        <span class="text-lg font-bold">원</span>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-white/20 grid grid-cols-3 gap-2 text-center text-xs">
+                        <div class="bg-black/10 rounded-lg p-2">
+                            <p class="text-orange-200 text-[10px]">남은 예산</p>
+                            <p class="font-semibold text-white mt-0.5" id="remaining-budget-display">0원</p>
+                        </div>
+                        <div class="bg-black/10 rounded-lg p-2">
+                            <p class="text-orange-200 text-[10px]">예정 지출</p>
+                            <p class="font-semibold text-white mt-0.5" id="scheduled-spend-display">0원</p>
+                        </div>
+                        <div class="bg-black/10 rounded-lg p-2">
+                            <p class="text-orange-200 text-[10px]">남은 날짜</p>
+                            <p class="font-semibold text-white mt-0.5" id="days-left-display">0일</p>
+                        </div>
+                    </div>
+
+                    <!-- 수식 설명 툴팁 -->
+                    <div class="mt-3 text-[10px] text-orange-100/80 bg-black/15 p-2 rounded-lg flex items-center gap-1.5">
+                        <svg class="ico text-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
+                        <span>산식: floor((남은예산 - 예정지출) / 남은날짜)</span>
+                    </div>
+                </div>
+
+                <!-- 퀵 액션: 소비 판단 바로가기 -->
+                <button onclick="switchTab('S-02')" class="w-full bg-pureWhite hover:bg-orange-50 border border-brand/20 p-4 rounded-xl shadow-sm flex items-center justify-between transition-all group">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform">
+                            ⚖️
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-bold text-sm text-darkBrown">살까 말까 고민되는 물건이 있나요?</h3>
+                            <p class="text-xs text-gray-500">AI 가중치 산식으로 사야 할지 판단해드려요</p>
+                        </div>
+                    </div>
+                    <svg class="ico text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+                </button>
+
+                <!-- C-02: 예정 지출 요약 리스트 -->
+                <div class="bg-pureWhite rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xs font-bold text-brand bg-brand/10 px-2 py-0.5 rounded-md">C-02</span>
+                            <h3 class="font-bold text-sm text-darkBrown">고정 예정 지출 리스트</h3>
+                        </div>
+                        <button onclick="switchTab('S-05')" class="text-xs text-gray-400 hover:text-brand">수정 <svg class="ico text-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
+                    </div>
+
+                    <div id="scheduled-items-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                        <!-- JS Dynamic rendering -->
+                    </div>
+                </div>
+
+                <!-- 자린굴비 한마디 팁 -->
+                <div class="bg-amber-50 rounded-xl p-3 border border-amber-200/60 flex items-start gap-2.5 text-xs text-amber-900">
+                    <span class="text-base leading-none">💡</span>
+                    <div>
+                        <span class="font-bold">자린굴비 가이드:</span> 충동구매 전 굴비 한 번 바라보고, '소비 판단' 탭에서 3초만 고민해보세요!
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================== -->
+            <!-- S-02: 구매·보류 판단 (F-02) -->
+            <!-- ======================================================== -->
+            <section id="S-02" class="tab-content hidden space-y-4">
+                <div class="bg-pureWhite rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-brand bg-brand/10 px-2 py-0.5 rounded-md">F-02</span>
+                        <h2 class="font-bold text-base text-darkBrown">소비 판단 진단기</h2>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">구매하려는 물건의 정보를 입력하면 자린굴비 가중치 산식(필요성 40% + 보유량 30% + 임펄스방어 30%)으로 판단해드립니다.</p>
+
+                    <form id="judgment-form" onsubmit="calculateJudgment(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">상품명 / 서비스명</label>
+                            <input type="text" id="prod-name" placeholder="예: 브랜드 운동화, 스타벅스 라떼" required
+                                class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">가격을 입력해주세요 (원)</label>
+                            <input type="number" id="prod-price" min="0" placeholder="0" required
+                                class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-xs font-semibold text-gray-700">필요성 점수 (N_score)</label>
+                                <span class="text-xs font-bold text-brand" id="necessity-val">50점</span>
+                            </div>
+                            <input type="range" id="prod-necessity" min="1" max="100" value="50" 
+                                oninput="document.getElementById('necessity-val').innerText = this.value + '점'"
+                                class="w-full accent-brand cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-gray-400 mt-0.5">
+                                <span>1(그냥 예쁨)</span>
+                                <span>50(보통)</span>
+                                <span>100(생존 필수)</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">비슷한 물품 보유 상황 (Q_stat)</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="quantity-status" value="0" class="peer hidden">
+                                    <div class="py-2 text-center text-xs rounded-xl border border-gray-200 peer-checked:bg-brand/10 peer-checked:border-brand peer-checked:text-brand font-medium">
+                                        충분함 (0점)
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="quantity-status" value="50" class="peer hidden" checked>
+                                    <div class="py-2 text-center text-xs rounded-xl border border-gray-200 peer-checked:bg-brand/10 peer-checked:border-brand peer-checked:text-brand font-medium">
+                                        보통 (50점)
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="quantity-status" value="100" class="peer hidden">
+                                    <div class="py-2 text-center text-xs rounded-xl border border-gray-200 peer-checked:bg-brand/10 peer-checked:border-brand peer-checked:text-brand font-medium">
+                                        전혀없음 (100점)
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand hover:bg-brandDark text-white py-3 rounded-xl font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2">
+                            <span>⚖️ 소비 판단 실행하기</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- C-03: 판단 결과 카드 (초기 숨김) -->
+                <div id="result-card" class="hidden bg-pureWhite rounded-2xl p-5 shadow-md border-2 border-brand space-y-4">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                        <span class="text-xs font-bold text-brand bg-brand/10 px-2 py-0.5 rounded-md">C-03 | 판단 결과</span>
+                        <span class="text-xs text-gray-400" id="res-timestamp">방금 전</span>
+                    </div>
+
+                    <div class="text-center py-2">
+                        <span id="res-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700">
+                            구매 추천
+                        </span>
+                        <h3 class="text-2xl font-black text-darkBrown mt-2" id="res-title">노트북 파우치</h3>
+                        <p class="text-xl font-extrabold text-brand mt-0.5" id="res-price">35,000원</p>
+                    </div>
+
+                    <!-- 종합 점수 표시 -->
+                    <div class="bg-cream rounded-xl p-3 flex justify-between items-center">
+                        <span class="text-xs font-bold text-darkBrown">최종 종합 판단 점수</span>
+                        <div class="text-right">
+                            <span class="text-xl font-black text-brand" id="res-score">78</span>
+                            <span class="text-xs text-gray-500"> / 100점</span>
+                        </div>
+                    </div>
+
+                    <!-- 예산 영향도 그래프 -->
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="text-gray-500">오늘 소비 한도 대비 비율</span>
+                            <span class="font-bold text-darkBrown" id="res-impact-percent">45%</span>
+                        </div>
+                        <div class="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+                            <div id="res-impact-bar" class="bg-brand h-2.5 rounded-full" style="width: 45%"></div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 mt-1" id="res-impact-desc">오늘 한도의 45%를 차지합니다.</p>
+                    </div>
+
+                    <!-- 판단 세부 이유 -->
+                    <div class="bg-gray-50 rounded-xl p-3 text-xs text-gray-700 space-y-1">
+                        <p class="font-bold text-darkBrown mb-1">📌 판단 사유 요약</p>
+                        <p id="res-reason-1">• 필요성이 높게 평가되었습니다.</p>
+                        <p id="res-reason-2">• 대체품 보유 상황이 적절합니다.</p>
+                    </div>
+
+                    <!-- F-03 연동 결과 기록 버튼 -->
+                    <div class="pt-2 grid grid-cols-2 gap-2">
+                        <button onclick="recordDecision('purchased')" class="bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold text-xs shadow transition-colors">
+                            🛒 구매함 (지출 등록)
+                        </button>
+                        <button onclick="recordDecision('held')" class="bg-darkBrown hover:bg-black text-white py-2.5 rounded-xl font-bold text-xs shadow transition-colors">
+                            🐟 보류함 (보류 리스트 저장)
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================== -->
+            <!-- S-04: 주간 소비 리포트 (F-05) -->
+            <!-- ======================================================== -->
+            <section id="S-04" class="tab-content hidden space-y-4">
+                <!-- C-07: 주간 소비 요약 카드 -->
+                <div class="bg-pureWhite rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xs font-bold text-brand bg-brand/10 px-2 py-0.5 rounded-md">C-07</span>
+                            <h2 class="font-bold text-base text-darkBrown">소비 판단 리포트</h2>
+                        </div>
+                        <span class="text-[11px] text-gray-400">이번 주 기준</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-orange-50 border border-orange-100 rounded-xl p-3">
+                            <p class="text-[11px] text-gray-500">실제 누적 지출</p>
+                            <p class="text-lg font-black text-brand mt-1" id="report-spent">0원</p>
+                        </div>
+                        <!-- 중요 규칙: 절약액이 아닌 '보류한 합계'로 명확히 표기 -->
+                        <div class="bg-stone-100 border border-stone-200 rounded-xl p-3">
+                            <p class="text-[11px] text-gray-500">보류한 구매 합계</p>
+                            <p class="text-lg font-black text-darkBrown mt-1" id="report-held-sum">0원</p>
+                        </div>
+                    </div>
+
+                    <!-- 유의사항 표기 (절약액 산정 금지 규칙 가드레일) -->
+                    <div class="bg-blue-50 p-2.5 rounded-xl text-[11px] text-blue-800 flex items-start gap-1.5 border border-blue-100">
+                        <svg class="ico text-blue-600 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z"/><path d="M12 3v18"/></svg>
+                        <span><strong>원칙 준수:</strong> 보류 금액은 실제 Savings(절약)가 아닌 '소비 보류 총액'으로 안전하게 표시됩니다.</span>
+                    </div>
+                </div>
+
+                <!-- 보류한 항목 목록 -->
+                <div class="bg-pureWhite rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-sm text-darkBrown mb-3 flex items-center justify-between">
+                        <span>🐟 보류한 구매 목록</span>
+                        <span class="text-xs font-normal text-gray-400" id="held-count">총 0건</span>
+                    </h3>
+
+                    <div id="held-items-list" class="space-y-2.5">
+                        <!-- JS Dynamic Rendering -->
+                    </div>
+                </div>
+
+                <!-- 최근 판단 및 기록 이력 -->
+                <div class="bg-pureWhite rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-sm text-darkBrown mb-3">⏱️ 최근 결정을 내린 이력</h3>
+                    <div id="history-items-list" class="space-y-2 text-xs text-gray-600">
+                        <!-- JS Dynamic Rendering -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================== -->
+            <!-- S-05: 마이페이지 / 예산 설정 -->
+            <!-- ======================================================== -->
+            <section id="S-05" class="tab-content hidden space-y-4">
+                <div class="bg-pureWhite rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-bold text-brand bg-brand/10 px-2 py-0.5 rounded-md">S-05</span>
+                        <h2 class="font-bold text-base text-darkBrown">예산 & 환경 설정</h2>
+                    </div>
+
+                    <form onsubmit="updateBudgetSettings(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">이번 달 남은 전체 예산 (원)</label>
+                            <input type="number" id="setting-budget" min="0" required
+                                class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">이번 달 남은 날짜 (일)</label>
+                            <input type="number" id="setting-days" min="1" max="31" required
+                                class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand">
+                        </div>
+
+                        <div class="pt-2 border-t border-gray-100">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-xs font-bold text-darkBrown">고정 예정 지출 추가</label>
+                            </div>
+                            <div class="flex gap-2 mb-3">
+                                <input type="text" id="new-item-title" placeholder="항목명 (예: 월세)" class="w-1/2 px-2.5 py-2 border border-gray-200 rounded-lg text-xs">
+                                <input type="number" id="new-item-price" placeholder="금액" class="w-1/2 px-2.5 py-2 border border-gray-200 rounded-lg text-xs">
+                                <button type="button" onclick="addScheduledItem()" class="bg-darkBrown text-white px-3 py-2 rounded-lg text-xs font-bold whitespace-nowrap">추가</button>
+                            </div>
+                            <div id="settings-scheduled-list" class="space-y-1.5 max-h-36 overflow-y-auto">
+                                <!-- JS items -->
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand hover:bg-brandDark text-white py-3 rounded-xl font-bold text-sm shadow transition-colors">
+                            설정값 적용 및 F-01 재연산
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 데이터 초기화 버튼 -->
+                <div class="text-center pt-2">
+                    <button onclick="resetData()" class="text-xs text-gray-400 hover:text-red-500 underline">
+                        초기 샘플 데이터로 리셋
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- BOTTOM TAB NAVIGATION (하단 고정 탭) -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-pureWhite/95 backdrop-blur-md border-t border-gray-200 py-2 px-3 flex justify-around items-center z-50">
+            <button onclick="switchTab('S-01')" id="nav-S-01" class="nav-btn active flex flex-col items-center gap-1 text-brand font-bold">
+                <svg class="ico text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+                <span class="text-[10px]">홈(F-01)</span>
+            </button>
+
+            <button onclick="switchTab('S-02')" id="nav-S-02" class="nav-btn flex flex-col items-center gap-1 text-gray-400 hover:text-brand font-medium">
+                <svg class="ico text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="m5 7-3 7a3.5 3.5 0 0 0 6 0z"/><path d="m19 7-3 7a3.5 3.5 0 0 0 6 0z"/></svg>
+                <span class="text-[10px]">소비판단(F-02)</span>
+            </button>
+
+            <button onclick="switchTab('S-04')" id="nav-S-04" class="nav-btn flex flex-col items-center gap-1 text-gray-400 hover:text-brand font-medium">
+                <svg class="ico text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M16 3.5A9 9 0 0 1 20.5 8H16z"/></svg>
+                <span class="text-[10px]">리포트(F-05)</span>
+            </button>
+
+            <button onclick="switchTab('S-05')" id="nav-S-05" class="nav-btn flex flex-col items-center gap-1 text-gray-400 hover:text-brand font-medium">
+                <svg class="ico text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span class="text-[10px]">마이페이지</span>
+            </button>
+        </nav>
+
+        <!-- 알림 모달/토스트 메시지 -->
+        <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 bg-darkBrown text-white text-xs px-4 py-2.5 rounded-full shadow-lg opacity-0 transition-opacity pointer-events-none z-50 flex items-center gap-2">
+            <span id="toast-icon">✨</span>
+            <span id="toast-msg">메시지가 등록되었습니다.</span>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // App State Management (In-Memory State)
+        let state = {
+            remainingBudget: 450000,
+            daysLeft: 15,
+            scheduledSpendList: [
+                { id: 1, title: '통신비 납부', price: 55000 },
+                { id: 2, title: '모임 회비', price: 30000 }
+            ],
+            history: [],
+            heldItems: [
+                { id: 101, title: '디자이너 맨투맨', price: 89000, date: '2026.10.24' },
+                { id: 102, title: '블루투스 키보드', price: 45000, date: '2026.10.25' }
+            ],
+            totalSpent: 62000,
+            currentJudgment: null
+        };
+
+        // Initialize App
+        window.onload = function() {
+            renderApp();
+            // Set current date string
+            const now = new Date();
+            document.getElementById('current-date-text').innerText = `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()}`;
+        };
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-brand', 'font-bold');
+                btn.classList.add('text-gray-400', 'font-medium');
+            });
+
+            const activeNav = document.getElementById(`nav-${tabId}`);
+            if (activeNav) {
+                activeNav.classList.remove('text-gray-400', 'font-medium');
+                activeNav.classList.add('text-brand', 'font-bold');
+            }
+        }
+
+        // F-01 Algorithm Calculator Logic
+        function calculateF01() {
+            const scheduledTotal = state.scheduledSpendList.reduce((sum, item) => sum + item.price, 0);
+            const availableBudget = state.remainingBudget - scheduledTotal;
+            // 수식: 오늘한도 = floor(가용예산 / 남은날짜)
+            const todayLimit = Math.max(0, Math.floor(availableBudget / state.daysLeft));
+            return { scheduledTotal, availableBudget, todayLimit };
+        }
+
+        // Render UI based on State
+        function renderApp() {
+            const { scheduledTotal, todayLimit } = calculateF01();
+
+            // 1. S-01 Home Updates
+            document.getElementById('today-limit-display').innerText = todayLimit.toLocaleString();
+            document.getElementById('remaining-budget-display').innerText = state.remainingBudget.toLocaleString() + '원';
+            document.getElementById('scheduled-spend-display').innerText = scheduledTotal.toLocaleString() + '원';
+            document.getElementById('days-left-display').innerText = state.daysLeft + '일';
+
+            // Scheduled List C-02 Render
+            const scheduledContainer = document.getElementById('scheduled-items-list');
+            if (state.scheduledSpendList.length === 0) {
+                scheduledContainer.innerHTML = `<p class="text-xs text-gray-400 text-center py-2">등록된 예정 지출이 없습니다.</p>`;
+            } else {
+                scheduledContainer.innerHTML = state.scheduledSpendList.map(item => `
+                    <div class="flex justify-between items-center bg-gray-50 p-2.5 rounded-xl text-xs">
+                        <span class="font-medium text-gray-700">${escapeHtml(item.title)}</span>
+                        <span class="font-bold text-darkBrown">${item.price.toLocaleString()}원</span>
+                    </div>
+                `).join('');
+            }
+
+            // 2. S-04 Report Updates
+            document.getElementById('report-spent').innerText = state.totalSpent.toLocaleString() + '원';
+            const heldSum = state.heldItems.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('report-held-sum').innerText = heldSum.toLocaleString() + '원';
+            document.getElementById('held-count').innerText = `총 ${state.heldItems.length}건`;
+
+            // Held Items List
+            const heldContainer = document.getElementById('held-items-list');
+            if (state.heldItems.length === 0) {
+                heldContainer.innerHTML = `<p class="text-xs text-gray-400 text-center py-4">보류된 항목이 없습니다.</p>`;
+            } else {
+                heldContainer.innerHTML = state.heldItems.map(item => `
+                    <div class="flex justify-between items-center bg-stone-50 border border-stone-200/60 p-3 rounded-xl">
+                        <div>
+                            <p class="font-bold text-xs text-darkBrown">${escapeHtml(item.title)}</p>
+                            <p class="text-[10px] text-gray-400">${item.date || '최근'}</p>
+                        </div>
+                        <span class="font-extrabold text-xs text-brand">${item.price.toLocaleString()}원</span>
+                    </div>
+                `).join('');
+            }
+
+            // History List
+            const historyContainer = document.getElementById('history-items-list');
+            if (state.history.length === 0) {
+                historyContainer.innerHTML = `<p class="text-xs text-gray-400 text-center py-2">최근 기록된 소비 판단이 없습니다.</p>`;
+            } else {
+                historyContainer.innerHTML = state.history.slice(-3).reverse().map(item => `
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span>${escapeHtml(item.title)} (${item.price.toLocaleString()}원)</span>
+                        <span class="font-bold ${item.action === 'purchased' ? 'text-emerald-600' : 'text-darkBrown'}">
+                            ${item.action === 'purchased' ? '🛒 구매' : '🐟 보류'}
+                        </span>
+                    </div>
+                `).join('');
+            }
+
+            // 3. S-05 Settings Forms Sync
+            document.getElementById('setting-budget').value = state.remainingBudget;
+            document.getElementById('setting-days').value = state.daysLeft;
+
+            const settingsScheduledList = document.getElementById('settings-scheduled-list');
+            settingsScheduledList.innerHTML = state.scheduledSpendList.map(item => `
+                <div class="flex justify-between items-center bg-gray-50 p-2 rounded-lg text-xs">
+                    <span>${escapeHtml(item.title)} (${item.price.toLocaleString()}원)</span>
+                    <button type="button" onclick="removeScheduledItem(${item.id})" class="text-red-500 font-bold px-1">✕</button>
+                </div>
+            `).join('');
+        }
+
+        // F-02 Judgment Calculation Logic
+        function calculateJudgment(e) {
+            e.preventDefault();
+            const name = document.getElementById('prod-name').value.trim();
+            const price = parseInt(document.getElementById('prod-price').value) || 0;
+            const N_score = parseInt(document.getElementById('prod-necessity').value) || 50;
+            const Q_stat = parseInt(document.querySelector('input[name="quantity-status"]:checked').value);
+
+            // 가공 및 산식 계산
+            // B_imp (임펄스 충동지수) - 가격 대 오늘의 한도 비율 기반 자율 측정 (MVP 수식화)
+            const { todayLimit } = calculateF01();
+            let B_imp = 30; // 기본값
+            if (todayLimit > 0) {
+                const ratio = (price / todayLimit) * 100;
+                B_imp = Math.min(100, Math.max(10, Math.round(ratio * 0.5)));
+            }
+
+            // 가중치 산식: score = N_score*0.4 + Q_stat*0.3 + (100 - B_imp)*0.3
+            const finalScore = Math.round((N_score * 0.4) + (Q_stat * 0.3) + ((100 - B_imp) * 0.3));
+
+            // 결과 저장
+            state.currentJudgment = {
+                title: name,
+                price: price,
+                score: finalScore
+            };
+
+            // UI 랜더링
+            document.getElementById('res-title').innerText = name;
+            document.getElementById('res-price').innerText = price.toLocaleString() + '원';
+            document.getElementById('res-score').innerText = finalScore;
+
+            // 판단 등급 산정 및 뱃지
+            const badge = document.getElementById('res-badge');
+            if (finalScore >= 70) {
+                badge.innerText = "구매 추천 (필수성 높음)";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700";
+            } else if (finalScore >= 45) {
+                badge.innerText = "대체·조건부 추천 (신중 고려)";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700";
+            } else {
+                badge.innerText = "구매 보류 강력 권장";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700";
+            }
+
+            // 영향도 계산
+            const impactPercent = todayLimit > 0 ? Math.min(100, Math.round((price / todayLimit) * 100)) : 100;
+            document.getElementById('res-impact-percent').innerText = `${impactPercent}%`;
+            document.getElementById('res-impact-bar').style.width = `${impactPercent}%`;
+            document.getElementById('res-impact-desc').innerText = `오늘 한도(${todayLimit.toLocaleString()}원)의 ${impactPercent}% 수준입니다.`;
+
+            // 판단 사유
+            document.getElementById('res-reason-1').innerText = `• 필요성 점수: ${N_score}점 (가중치 40% 적용)`;
+            document.getElementById('res-reason-2').innerText = `• 보유 및 충동 방어: 대체 가능성 및 예산 부담도 고찰됨`;
+
+            // 결과 카드 노출
+            document.getElementById('result-card').classList.remove('hidden');
+            showToast('⚖️ 소비 판단 연산이 완료되었습니다.');
+        }
+
+        // Record Decision (구매함 / 보류함 -> F-03 연동)
+        function recordDecision(action) {
+            if (!state.currentJudgment) return;
+
+            const { title, price } = state.currentJudgment;
+            const now = new Date();
+            const dateStr = `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()}`;
+
+            if (action === 'purchased') {
+                state.totalSpent += price;
+                state.remainingBudget = Math.max(0, state.remainingBudget - price);
+                showToast(`🛒 [${title}] 지출이 기록되고 예산이 차감되었습니다.`);
+            } else {
+                state.heldItems.push({
+                    id: Date.now(),
+                    title: title,
+                    price: price,
+                    date: dateStr
+                });
+                showToast(`🐟 [${title}] 보류 리스트에 저장되었습니다!`);
+            }
+
+            state.history.push({
+                title,
+                price,
+                action,
+                date: dateStr
+            });
+
+            // 초기화
+            document.getElementById('result-card').classList.add('hidden');
+            document.getElementById('judgment-form').reset();
+            state.currentJudgment = null;
+
+            renderApp();
+            switchTab('S-01'); // 홈으로 이동
+        }
+
+        // Budget Settings Update
+        function updateBudgetSettings(e) {
+            e.preventDefault();
+            const budget = parseInt(document.getElementById('setting-budget').value) || 0;
+            const days = parseInt(document.getElementById('setting-days').value) || 1;
+
+            state.remainingBudget = budget;
+            state.daysLeft = days;
+
+            renderApp();
+            showToast('⚙️ 예산 설정이 업데이트되었습니다.');
+            switchTab('S-01');
+        }
+
+        // Add Scheduled Item
+        function addScheduledItem() {
+            const titleInput = document.getElementById('new-item-title');
+            const priceInput = document.getElementById('new-item-price');
+
+            const title = titleInput.value.trim();
+            const price = parseInt(priceInput.value) || 0;
+
+            if (!title || price <= 0) {
+                showToast('⚠️ 정확한 항목명과 금액을 입력해주세요.');
+                return;
+            }
+
+            state.scheduledSpendList.push({
+                id: Date.now(),
+                title,
+                price
+            });
+
+            titleInput.value = '';
+            priceInput.value = '';
+
+            renderApp();
+            showToast('➕ 예정 지출 항목이 추가되었습니다.');
+        }
+
+        // Remove Scheduled Item
+        function removeScheduledItem(id) {
+            state.scheduledSpendList = state.scheduledSpendList.filter(item => item.id !== id);
+            renderApp();
+            showToast('🗑️ 항목이 삭제되었습니다.');
+        }
+
+        // Reset Data
+        function resetData() {
+            state = {
+                remainingBudget: 450000,
+                daysLeft: 15,
+                scheduledSpendList: [
+                    { id: 1, title: '통신비 납부', price: 55000 },
+                    { id: 2, title: '모임 회비', price: 30000 }
+                ],
+                history: [],
+                heldItems: [
+                    { id: 101, title: '디자이너 맨투맨', price: 89000, date: '2026.10.24' },
+                    { id: 102, title: '블루투스 키보드', price: 45000, date: '2026.10.25' }
+                ],
+                totalSpent: 62000,
+                currentJudgment: null
+            };
+            renderApp();
+            showToast('🔄 데이터가 initial 샘플 상태로 리셋되었습니다.');
+        }
+
+        // Utility: Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // Helper: Escape HTML
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
+
+</div>
+<script>
+        // App State Management (In-Memory State)
+        let state = {
+            remainingBudget: 450000,
+            daysLeft: 15,
+            scheduledSpendList: [
+                { id: 1, title: '통신비 납부', price: 55000 },
+                { id: 2, title: '모임 회비', price: 30000 }
+            ],
+            history: [],
+            heldItems: [
+                { id: 101, title: '디자이너 맨투맨', price: 89000, date: '2026.10.24' },
+                { id: 102, title: '블루투스 키보드', price: 45000, date: '2026.10.25' }
+            ],
+            totalSpent: 62000,
+            currentJudgment: null
+        };
+
+        // Initialize App
+        window.onload = function() {
+            renderApp();
+            // Set current date string
+            const now = new Date();
+            document.getElementById('current-date-text').innerText = `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()}`;
+        };
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-brand', 'font-bold');
+                btn.classList.add('text-gray-400', 'font-medium');
+            });
+
+            const activeNav = document.getElementById(`nav-${tabId}`);
+            if (activeNav) {
+                activeNav.classList.remove('text-gray-400', 'font-medium');
+                activeNav.classList.add('text-brand', 'font-bold');
+            }
+        }
+
+        // F-01 Algorithm Calculator Logic
+        function calculateF01() {
+            const scheduledTotal = state.scheduledSpendList.reduce((sum, item) => sum + item.price, 0);
+            const availableBudget = state.remainingBudget - scheduledTotal;
+            // 수식: 오늘한도 = floor(가용예산 / 남은날짜)
+            const todayLimit = Math.max(0, Math.floor(availableBudget / state.daysLeft));
+            return { scheduledTotal, availableBudget, todayLimit };
+        }
+
+        // Render UI based on State
+        function renderApp() {
+            const { scheduledTotal, todayLimit } = calculateF01();
+
+            // 1. S-01 Home Updates
+            document.getElementById('today-limit-display').innerText = todayLimit.toLocaleString();
+            document.getElementById('remaining-budget-display').innerText = state.remainingBudget.toLocaleString() + '원';
+            document.getElementById('scheduled-spend-display').innerText = scheduledTotal.toLocaleString() + '원';
+            document.getElementById('days-left-display').innerText = state.daysLeft + '일';
+
+            // Scheduled List C-02 Render
+            const scheduledContainer = document.getElementById('scheduled-items-list');
+            if (state.scheduledSpendList.length === 0) {
+                scheduledContainer.innerHTML = `<p class="text-xs text-gray-400 text-center py-2">등록된 예정 지출이 없습니다.</p>`;
+            } else {
+                scheduledContainer.innerHTML = state.scheduledSpendList.map(item => `
+                    <div class="flex justify-between items-center bg-gray-50 p-2.5 rounded-xl text-xs">
+                        <span class="font-medium text-gray-700">${escapeHtml(item.title)}</span>
+                        <span class="font-bold text-darkBrown">${item.price.toLocaleString()}원</span>
+                    </div>
+                `).join('');
+            }
+
+            // 2. S-04 Report Updates
+            document.getElementById('report-spent').innerText = state.totalSpent.toLocaleString() + '원';
+            const heldSum = state.heldItems.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('report-held-sum').innerText = heldSum.toLocaleString() + '원';
+            document.getElementById('held-count').innerText = `총 ${state.heldItems.length}건`;
+
+            // Held Items List
+            const heldContainer = document.getElementById('held-items-list');
+            if (state.heldItems.length === 0) {
+                heldContainer.innerHTML = `<p class="text-xs text-gray-400 text-center py-4">보류된 항목이 없습니다.</p>`;
+            } else {
+                heldContainer.innerHTML = state.heldItems.map(item => `
+                    <div class="flex justify-between items-center bg-stone-50 border border-stone-200/60 p-3 rounded-xl">
+                        <div>
+                            <p class="font-bold text-xs text-darkBrown">${escapeHtml(item.title)}</p>
+                            <p class="text-[10px] text-gray-400">${item.date || '최근'}</p>
+                        </div>
+                        <span class="font-extrabold text-xs text-brand">${item.price.toLocaleString()}원</span>
+                    </div>
+                `).join('');
+            }
+
+            // History List
+            const historyContainer = document.getElementById('history-items-list');
+            if (state.history.length === 0) {
+                historyContainer.innerHTML = `<p class="text-xs text-gray-400 text-center py-2">최근 기록된 소비 판단이 없습니다.</p>`;
+            } else {
+                historyContainer.innerHTML = state.history.slice(-3).reverse().map(item => `
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span>${escapeHtml(item.title)} (${item.price.toLocaleString()}원)</span>
+                        <span class="font-bold ${item.action === 'purchased' ? 'text-emerald-600' : 'text-darkBrown'}">
+                            ${item.action === 'purchased' ? '🛒 구매' : '🐟 보류'}
+                        </span>
+                    </div>
+                `).join('');
+            }
+
+            // 3. S-05 Settings Forms Sync
+            document.getElementById('setting-budget').value = state.remainingBudget;
+            document.getElementById('setting-days').value = state.daysLeft;
+
+            const settingsScheduledList = document.getElementById('settings-scheduled-list');
+            settingsScheduledList.innerHTML = state.scheduledSpendList.map(item => `
+                <div class="flex justify-between items-center bg-gray-50 p-2 rounded-lg text-xs">
+                    <span>${escapeHtml(item.title)} (${item.price.toLocaleString()}원)</span>
+                    <button type="button" onclick="removeScheduledItem(${item.id})" class="text-red-500 font-bold px-1">✕</button>
+                </div>
+            `).join('');
+        }
+
+        // F-02 Judgment Calculation Logic
+        function calculateJudgment(e) {
+            e.preventDefault();
+            const name = document.getElementById('prod-name').value.trim();
+            const price = parseInt(document.getElementById('prod-price').value) || 0;
+            const N_score = parseInt(document.getElementById('prod-necessity').value) || 50;
+            const Q_stat = parseInt(document.querySelector('input[name="quantity-status"]:checked').value);
+
+            // 가공 및 산식 계산
+            // B_imp (임펄스 충동지수) - 가격 대 오늘의 한도 비율 기반 자율 측정 (MVP 수식화)
+            const { todayLimit } = calculateF01();
+            let B_imp = 30; // 기본값
+            if (todayLimit > 0) {
+                const ratio = (price / todayLimit) * 100;
+                B_imp = Math.min(100, Math.max(10, Math.round(ratio * 0.5)));
+            }
+
+            // 가중치 산식: score = N_score*0.4 + Q_stat*0.3 + (100 - B_imp)*0.3
+            const finalScore = Math.round((N_score * 0.4) + (Q_stat * 0.3) + ((100 - B_imp) * 0.3));
+
+            // 결과 저장
+            state.currentJudgment = {
+                title: name,
+                price: price,
+                score: finalScore
+            };
+
+            // UI 랜더링
+            document.getElementById('res-title').innerText = name;
+            document.getElementById('res-price').innerText = price.toLocaleString() + '원';
+            document.getElementById('res-score').innerText = finalScore;
+
+            // 판단 등급 산정 및 뱃지
+            const badge = document.getElementById('res-badge');
+            if (finalScore >= 70) {
+                badge.innerText = "구매 추천 (필수성 높음)";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700";
+            } else if (finalScore >= 45) {
+                badge.innerText = "대체·조건부 추천 (신중 고려)";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700";
+            } else {
+                badge.innerText = "구매 보류 강력 권장";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700";
+            }
+
+            // 영향도 계산
+            const impactPercent = todayLimit > 0 ? Math.min(100, Math.round((price / todayLimit) * 100)) : 100;
+            document.getElementById('res-impact-percent').innerText = `${impactPercent}%`;
+            document.getElementById('res-impact-bar').style.width = `${impactPercent}%`;
+            document.getElementById('res-impact-desc').innerText = `오늘 한도(${todayLimit.toLocaleString()}원)의 ${impactPercent}% 수준입니다.`;
+
+            // 판단 사유
+            document.getElementById('res-reason-1').innerText = `• 필요성 점수: ${N_score}점 (가중치 40% 적용)`;
+            document.getElementById('res-reason-2').innerText = `• 보유 및 충동 방어: 대체 가능성 및 예산 부담도 고찰됨`;
+
+            // 결과 카드 노출
+            document.getElementById('result-card').classList.remove('hidden');
+            showToast('⚖️ 소비 판단 연산이 완료되었습니다.');
+        }
+
+        // Record Decision (구매함 / 보류함 -> F-03 연동)
+        function recordDecision(action) {
+            if (!state.currentJudgment) return;
+
+            const { title, price } = state.currentJudgment;
+            const now = new Date();
+            const dateStr = `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()}`;
+
+            if (action === 'purchased') {
+                state.totalSpent += price;
+                state.remainingBudget = Math.max(0, state.remainingBudget - price);
+                showToast(`🛒 [${title}] 지출이 기록되고 예산이 차감되었습니다.`);
+            } else {
+                state.heldItems.push({
+                    id: Date.now(),
+                    title: title,
+                    price: price,
+                    date: dateStr
+                });
+                showToast(`🐟 [${title}] 보류 리스트에 저장되었습니다!`);
+            }
+
+            state.history.push({
+                title,
+                price,
+                action,
+                date: dateStr
+            });
+
+            // 초기화
+            document.getElementById('result-card').classList.add('hidden');
+            document.getElementById('judgment-form').reset();
+            state.currentJudgment = null;
+
+            renderApp();
+            switchTab('S-01'); // 홈으로 이동
+        }
+
+        // Budget Settings Update
+        function updateBudgetSettings(e) {
+            e.preventDefault();
+            const budget = parseInt(document.getElementById('setting-budget').value) || 0;
+            const days = parseInt(document.getElementById('setting-days').value) || 1;
+
+            state.remainingBudget = budget;
+            state.daysLeft = days;
+
+            renderApp();
+            showToast('⚙️ 예산 설정이 업데이트되었습니다.');
+            switchTab('S-01');
+        }
+
+        // Add Scheduled Item
+        function addScheduledItem() {
+            const titleInput = document.getElementById('new-item-title');
+            const priceInput = document.getElementById('new-item-price');
+
+            const title = titleInput.value.trim();
+            const price = parseInt(priceInput.value) || 0;
+
+            if (!title || price <= 0) {
+                showToast('⚠️ 정확한 항목명과 금액을 입력해주세요.');
+                return;
+            }
+
+            state.scheduledSpendList.push({
+                id: Date.now(),
+                title,
+                price
+            });
+
+            titleInput.value = '';
+            priceInput.value = '';
+
+            renderApp();
+            showToast('➕ 예정 지출 항목이 추가되었습니다.');
+        }
+
+        // Remove Scheduled Item
+        function removeScheduledItem(id) {
+            state.scheduledSpendList = state.scheduledSpendList.filter(item => item.id !== id);
+            renderApp();
+            showToast('🗑️ 항목이 삭제되었습니다.');
+        }
+
+        // Reset Data
+        function resetData() {
+            state = {
+                remainingBudget: 450000,
+                daysLeft: 15,
+                scheduledSpendList: [
+                    { id: 1, title: '통신비 납부', price: 55000 },
+                    { id: 2, title: '모임 회비', price: 30000 }
+                ],
+                history: [],
+                heldItems: [
+                    { id: 101, title: '디자이너 맨투맨', price: 89000, date: '2026.10.24' },
+                    { id: 102, title: '블루투스 키보드', price: 45000, date: '2026.10.25' }
+                ],
+                totalSpent: 62000,
+                currentJudgment: null
+            };
+            renderApp();
+            showToast('🔄 데이터가 initial 샘플 상태로 리셋되었습니다.');
+        }
+
+        // Utility: Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // Helper: Escape HTML
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
+
+</body></html>
